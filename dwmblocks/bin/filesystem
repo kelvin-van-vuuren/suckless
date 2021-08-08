@@ -1,0 +1,4 @@
+partition=$1
+name=$2
+output=$(df -BG $partition | sed '1d' | awk -v drive="$name" '{ print " " drive ": " $3 " (" $5 ")" }')
+echo "$output"
