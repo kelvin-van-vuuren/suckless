@@ -1,0 +1,10 @@
+#!/bin/bash
+
+time="1"     # one second
+int="enp0s31f6"   # network interface
+
+rxbytes_old=$((`cat /sys/class/net/$int/statistics/rx_bytes` / 1000)) # sent packets
+sleep $time
+rxbytes_new=$((`cat /sys/class/net/$int/statistics/rx_bytes` / 1000)) # sent packets
+rxbytes="`expr $rxbytes_new - $rxbytes_old`"		     # evaluate expressions for sent packets
+echo $rxbytes"kb"
