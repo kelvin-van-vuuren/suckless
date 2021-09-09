@@ -66,8 +66,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", nord_bg, "-nf", nord_fg, "-sb", nord_blue, "-sf", nord_blue, NULL };
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-p", " : ", "-l", "20", "-c", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[]  = { "dmenu_run", "-m", dmenumon, "-p", " : ", "-l", "20", "-c", NULL };
+static const char *termcmd[]   = { "st", NULL };
+static const char *skippycmd[] = { "skippy-xd", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,15 +91,16 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_h,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_l, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_h,      focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_l,      focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY|ShiftMask,             XK_n,  tagnextmon,        {.ui = 1  } },
-	{ MODKEY|ShiftMask,             XK_p,  tagprevmon,        {.ui = 1  } },
+	{ MODKEY|ShiftMask,             XK_n,      tagnextmon,     {.ui = 1  } },
+	{ MODKEY|ShiftMask,             XK_p,      tagprevmon,     {.ui = 1  } },
+        { MODKEY,                       XK_BackSpace, spawn,        {.v = skippycmd }},
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("~/.config/brightness/brightness_increase_dwm DP-1")},
 	{ MODKEY|ShiftMask,             XK_F1,     spawn,          SHCMD("~/.config/brightness/brightness_decrease_dwm DP-1")},
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("~/.config/brightness/brightness_increase_dwm HDMI-1")},
