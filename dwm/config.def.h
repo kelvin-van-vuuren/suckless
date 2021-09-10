@@ -48,6 +48,9 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
+	{ NULL,       NULL },
 };
 
 /* key definitions */
@@ -70,6 +73,7 @@ static const char *dmenucmd[]  = { "dmenu_run", "-m", dmenumon, "-p", " : ", 
 static const char *termcmd[]   = { "st", NULL };
 static const char *skippycmd[] = { "skippy-xd", NULL };
 
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -81,12 +85,18 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_comma,  setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_period, setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+	{ MODKEY|ShiftMask,		XK_h,      cyclelayout,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l,      cyclelayout,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -100,7 +110,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	{ MODKEY|ShiftMask,             XK_n,      tagnextmon,     {.ui = 1  } },
 	{ MODKEY|ShiftMask,             XK_p,      tagprevmon,     {.ui = 1  } },
-        { MODKEY,                       XK_BackSpace, spawn,        {.v = skippycmd }},
+        { MODKEY,                       XK_BackSpace, spawn,       {.v = skippycmd }},
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("~/.config/brightness/brightness_increase_dwm DP-1")},
 	{ MODKEY|ShiftMask,             XK_F1,     spawn,          SHCMD("~/.config/brightness/brightness_decrease_dwm DP-1")},
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("~/.config/brightness/brightness_increase_dwm HDMI-1")},
