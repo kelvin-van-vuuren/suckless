@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int extrabarright      = 0;        /* 1 means extra bar text on right */
 static const char statussep         = ';';      /* separator between status bars */
 static const char statussepright    = '@';      /* separator between status bars */
-static const char buttonbar[]       = " ";
+static const char buttonbar[]       = "";
 static const char *fonts[]          = { "JetbrainsMono Nerd Font:style=Book:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char fg[]              = "#ffffff";
