@@ -111,12 +111,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_n,      tagnextmon,     {.ui = 1  } },
 	{ MODKEY|ShiftMask,             XK_p,      tagprevmon,     {.ui = 1  } },
         { MODKEY,                       XK_BackSpace, spawn,       {.v = skippycmd }},
-	{ MODKEY,                       XK_F1,     spawn,          SHCMD("~/.config/brightness/brightness_increase_dwm DP-1")},
-	{ MODKEY|ShiftMask,             XK_F1,     spawn,          SHCMD("~/.config/brightness/brightness_decrease_dwm DP-1")},
-	{ MODKEY,                       XK_F2,     spawn,          SHCMD("~/.config/brightness/brightness_increase_dwm HDMI-1")},
-	{ MODKEY|ShiftMask,             XK_F2,     spawn,          SHCMD("~/.config/brightness/brightness_decrease_dwm HDMI-1")},
-	{ MODKEY,                       XK_F3,     spawn,          SHCMD("~/.config/brightness/brightness_increase_dwm DVI-D-1")},
-	{ MODKEY|ShiftMask,             XK_F3,     spawn,          SHCMD("~/.config/brightness/brightness_decrease_dwm DVI-D-1")},
+	{ MODKEY|ControlMask|ShiftMask, XK_1,     spawn,           SHCMD("~/.config/brightness/brightness_increase_dwm DP-1")},
+	{ MODKEY|ShiftMask,             XK_1,     spawn,           SHCMD("~/.config/brightness/brightness_decrease_dwm DP-1")},
+	{ MODKEY|ControlMask|ShiftMask, XK_2,     spawn,           SHCMD("~/.config/brightness/brightness_increase_dwm HDMI-1")},
+	{ MODKEY|ShiftMask,             XK_2,     spawn,           SHCMD("~/.config/brightness/brightness_decrease_dwm HDMI-1")},
+	{ MODKEY|ControlMask|ShiftMask, XK_3,     spawn,           SHCMD("~/.config/brightness/brightness_increase_dwm DVI-D-1")},
+	{ MODKEY|ShiftMask,             XK_3,     spawn,           SHCMD("~/.config/brightness/brightness_decrease_dwm DVI-D-1")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
