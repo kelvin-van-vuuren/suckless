@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ -f /tmp/dwm_bar_pid ]; then
+    kill $(cat /tmp/dwm_bar_pid) || true
+    rm /tmp/dwm_bar_pid
+fi

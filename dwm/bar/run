@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# ^c$var^ = fg color
+# ^b$var^ = bg color
+
+IFS= # needed to preserve whitespace in delim
+
+interval=0
+delim="   "
+scriptpath="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/scripts"
+
+# place scripts at specific bar sections
+topr=(mail rss date clock)
+bottoml=(network-up network-down memory cpu)
+bottomr=(filesystem-root filesystem-home filesystem-hdd)
+
+# load colors!
+#. ~/.dwm/bar/themes/onedark
+
+function get_bar_section_val() {
+    local scripts=("$@")
+    for script in "${scripts[@]}"; do 
+        printf "%s" "$delim"$($scriptpath/$script)
+    done
+}
+
+while true; do
+
+        [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$($scriptpath/package-updates)
+	interval=$((interval + 1))
+
+        sleep 2 && xsetroot -name "$updates $(get_bar_section_val ${topr[@]});$(get_bar_section_val ${bottoml[@]})@$(get_bar_section_val ${bottomr[@]})"
+done

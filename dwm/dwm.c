@@ -1454,8 +1454,9 @@ run(void)
 }
 
 void
-runAutostart(void) {
-    system("killall -q dwmblocks; dwmblocks &");
+runAutostart(void) 
+{
+    system("$SUCKLESSDIR/dwm/bar/stop; $SUCKLESSDIR/dwm/bar/start &");
 }
 
 void

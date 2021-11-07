@@ -1,0 +1,4 @@
+#!/bin/bash
+
+$SUCKLESSDIR/dwm/bar/run &
+echo $! > /tmp/dwm_bar_pid

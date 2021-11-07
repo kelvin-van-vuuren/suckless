@@ -1,0 +1,3 @@
+#!/bin/sh
+
+"$SUCKLESSDIR"/dwm/bar/scripts/filesystem /volumes/hdd hdd
