@@ -11,7 +11,7 @@ bin="$SUCKLESSDIR/dwm/bar/bin"
 
 # place scripts at specific bar sections
 tr=(mail rss date clock)
-bl=(network-up network-down memory cpu)
+bl=(packets-sent packets-received memory cpu)
 br=(filesystem-root filesystem-home filesystem-hdd)
 
 # load colors!
