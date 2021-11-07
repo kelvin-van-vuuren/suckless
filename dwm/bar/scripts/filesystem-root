@@ -1,3 +1,0 @@
-#!/bin/sh
-
-"$SUCKLESSDIR"/dwm/bar/scripts/filesystem / root

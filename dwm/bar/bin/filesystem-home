@@ -1,0 +1,3 @@
+#!/bin/sh
+
+"$SUCKLESSDIR"/dwm/bar/bin/filesystem /home home
