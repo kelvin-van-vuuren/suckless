@@ -1456,7 +1456,7 @@ run(void)
 void
 runAutostart(void) 
 {
-    system("$SUCKLESSDIR/dwm/bar/stop; $SUCKLESSDIR/dwm/bar/start &");
+    system("$SUCKLESSDIR/dwm/bar/restart");
 }
 
 void

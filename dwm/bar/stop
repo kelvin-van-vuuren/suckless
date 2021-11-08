@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -f /tmp/dwm_bar_pid ]; then
     kill $(cat /tmp/dwm_bar_pid) || true
