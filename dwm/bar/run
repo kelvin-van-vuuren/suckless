@@ -12,7 +12,7 @@ bin="$SUCKLESSDIR/dwm/bar/bin"
 # place scripts at specific bar sections
 tr=(mail rss date clock)
 bl=(packets-sent packets-received memory cpu)
-br=(filesystem-root filesystem-home filesystem-hdd)
+br=(cpu-temp filesystem-root)
 
 # load colors!
 #. ~/.dwm/bar/themes/onedark

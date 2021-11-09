@@ -1,7 +1,7 @@
 #!/bin/bash
 
 time="1"     # one second
-int="wlan0"   # network interface
+int="enp0s31f6"   # network interface
 
 rxbytes_old=$((`cat /sys/class/net/$int/statistics/rx_bytes` / 1000)) # sent packets
 sleep $time

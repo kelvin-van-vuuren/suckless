@@ -22,7 +22,7 @@ if hash notify-send &>/dev/null; then
 fi
 
 if [ "$updates" -gt 0 ]; then
-    echo " $updates_arch+$updates_aur"
+    echo "  $updates_arch+$updates_aur"
 else
-    echo " None"
+    echo "  None"
 fi
