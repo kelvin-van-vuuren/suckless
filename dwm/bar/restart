@@ -1,0 +1,4 @@
+#!/bin/sh
+
+$SUCKLESSDIR/dwm/bar/stop
+$SUCKLESSDIR/dwm/bar/start

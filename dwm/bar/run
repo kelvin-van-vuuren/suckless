@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# ^c$var^ = fg color
+# ^b$var^ = bg color
+
+IFS= # needed to preserve whitespace in delim
+
+interval=0
+delim="   "
+bin="$SUCKLESSDIR/dwm/bar/bin"
+
+# place scripts at specific bar sections
+tr=(mail rss date clock)
+bl=(packets-sent packets-received memory cpu)
+br=(filesystem-root filesystem-home filesystem-hdd)
+
+# load colors!
+#. ~/.dwm/bar/themes/onedark
+
+function get_bar_section_val() {
+    local scripts=("$@")
+    for script in "${scripts[@]}"; do 
+        printf "%s" "$delim"$($bin/$script)
+    done
+}
+
+while true; do
+
+        [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$($bin/package-updates)
+	interval=$((interval + 1))
+
+        sleep 2 && xsetroot -name "$updates $(get_bar_section_val ${tr[@]});$(get_bar_section_val ${bl[@]})@$(get_bar_section_val ${br[@]})"
+done

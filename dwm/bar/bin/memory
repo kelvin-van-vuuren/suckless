@@ -1,0 +1,3 @@
+#!/bin/sh
+
+free -m | grep Mem | awk '{printf ( "  %2.2fgb (%i%)", ($3 / 1024), (($3/$2)*100))}'

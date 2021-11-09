@@ -1,0 +1,5 @@
+#!/bin/sh
+
+$SUCKLESSDIR/dwm/bar/run &
+# save pid so can be stopped 
+echo $! > /tmp/dwm_bar_pid
