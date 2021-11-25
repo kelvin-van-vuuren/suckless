@@ -10,6 +10,8 @@ delim="   "
 bin="$SUCKLESSDIR/dwm/bar/bin"
 statussep=";"
 
+. $SUCKLESSDIR/dwm/bar/themes/theme
+
 # place scripts at specific bar sections
 tr=(mail rss date clock)
 bl=(packets-sent packets-received memory cpu)
@@ -21,7 +23,7 @@ br=(cpu-temp volume wifi battery filesystem-root)
 function get_bar_section_val() {
     local scripts=("$@")
     for script in "${scripts[@]}"; do 
-        printf "%s" "$delim"$($bin/$script)
+        printf "%s" "$delim"$(. $bin/$script)
     done
 }
 

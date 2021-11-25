@@ -17,5 +17,5 @@ case "$clock" in
 	"11") icon="🕚" ;;
 	"12") icon="🕛" ;;
 esac
-
-date "+$icon %I:%M%p"
+date=$(date "+$icon %I:%M%p")
+printf "^c$green^$date"
