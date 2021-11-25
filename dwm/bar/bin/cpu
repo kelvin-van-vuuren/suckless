@@ -2,12 +2,6 @@
 
 . $SUCKLESSDIR/dwm/bar/themes/theme
 
-#cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
-#printf "^c$black^ ^b$green^  "
-#printf "^c$white^ ^b$grey^ $cpu_val"
-#top -bn1 | grep "Cpu(s)" | \
-           #sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
-           #awk '{print " " 100 - $1"%"}'
-cpu_free=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/")
+cpu_free=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}')
 printf "^c$black^ ^b$blue^  "
-printf "$((100 - $cpu_free))" 
+printf "^c$white^ ^b$grey^ $cpu_free" 
