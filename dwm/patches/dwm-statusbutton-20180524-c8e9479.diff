@@ -89,3 +89,4 @@ index bb95e26..689cb01 100644
  		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
 -- 
 2.7.4
+
